@@ -12,6 +12,23 @@ use Illuminate\Support\Str;
 
 class SubTaskController extends Controller
 {
+    public function index(Request $request, $taskId)
+    {
+        try {
+            $subTasks = SubTask::with('task')
+                ->where('task_id', $taskId)
+                ->orderByDesc('created_at')
+                ->get();
+
+            return response()->json($subTasks);
+        } catch (Throwable $e) {
+            return response()->json([
+                'message' => 'Gagal mengambil data subtask',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
     public function store(Request $request, $taskId)
     {
         $request->validate([
