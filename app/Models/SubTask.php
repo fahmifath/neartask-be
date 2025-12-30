@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SubTask extends Model
 {
+    protected $keyType = 'string';
+
     protected $fillable = [
         'task_id',
         'title',
