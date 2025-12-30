@@ -8,6 +8,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Throwable;
+use Illuminate\Support\Str;
 
 class SubTaskController extends Controller
 {
@@ -37,6 +38,7 @@ class SubTaskController extends Controller
             }
 
             $subTask = SubTask::create([
+                'id' => Str::uuid(),
                 'task_id' => $task->id,
                 'title' => $request->title,
                 'weight' => $request->weight,

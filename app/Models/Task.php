@@ -11,7 +11,7 @@ class Task extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'user_id',
+        'id',
         'title',
         'description',
         'task_date',

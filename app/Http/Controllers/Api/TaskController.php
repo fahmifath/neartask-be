@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Throwable;
 
 class TaskController extends Controller
@@ -40,6 +41,7 @@ class TaskController extends Controller
 
         try {
             $task = Task::create([
+                'id' => Str::uuid(),
                 'title' => $request->title,
                 'description' => $request->description,
                 'task_date' => $request->task_date,

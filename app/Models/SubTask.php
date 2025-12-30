@@ -10,6 +10,7 @@ class SubTask extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'id',
         'task_id',
         'title',
         'weight',
